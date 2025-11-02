@@ -1,0 +1,12 @@
+names:
+- casa
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: casas-lofjy
+  url: https://universe.roboflow.com/probando-ggup4/casas-lofjy/dataset/2
+  version: 2
+  workspace: probando-ggup4
+test: ../test/images
+train: ../train/images
+val:

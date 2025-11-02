@@ -1,0 +1,16 @@
+# Detección y entrenamiento con YOLO
+ultralytics
+# Dependencias principales de Python
+numpy
+# Usado para manejo de imágenes (API, Infernecia)
+opencv-python
+Pillow
+# Usado para visualización (Infernecia/Utils)
+matplotlib
+# Usado para utilidades (lectura de data.yaml)
+PyYAML
+# Dependencias para el despliegue con FastAPI (Punto 7)
+fastapi
+uvicorn
+pydantic
+python-multipartS
