@@ -14,6 +14,7 @@ Se Obtuvieron 80 imágenes, sin embargo, luego de técticas de aumento de datos:
 * Voltear: Horizontal
 * Rotación: Entre -3° y +3°
 * Saturación: Entre -34% y +34%
+
 * Desenfoque: Hasta 1.2px
 Se logró una cantidad de 208 imágenes. La división del dataset 192 imágenes en train y 16 de entrenamiento.
 Anotaciones, bounding boxes, aumentación de datos con la herramienta Roboflow.
@@ -88,8 +89,8 @@ uvicorn API:app --reload
 Para las métricas se decidió: recall, matriz de confusión, precisión.
 
 Revisaremos la matriz de confusión
-
-![Vemos una buena cantidad de de verdaderos positivos pero no detecta bien todas las casas]("C:\Users\valer\OneDrive\Documentos\Urosario\2025-2\Vision\taller_yolo_casas\matrix-confusion.png")
+<img width="3000" height="2250" alt="matrix-confusion" src="https://github.com/user-attachments/assets/b8dc8181-014a-48d1-aba9-2410cb31b264" />
+Vemos una buena cantidad de de verdaderos positivos pero no detecta bien todas las casas
 
 La métrica mAP@0.5 de 0.681 indica que, en promedio, el modelo logra identificar las casas con una Intersection Over Union (IOU) mayor al 50% en un 68.1% de los casos. 
 
@@ -99,11 +100,11 @@ Sin embargo, el Recall (Exhaustividad) de 0.620 es relativamente bajo. Un recall
 
 La disparidad entre la alta Precision y el bajo Recall es el punto clave del análisis: el modelo es selectivo (preciso), pero no es exhaustivo (tiene fallas al encontrar todas las casas). Dado que el dataset utilizado es pequeño, esta limitación es esperable. La falta de variabilidad en ángulos, tamaños y condiciones de iluminación en las imágenes recolectadas provoca que el modelo tenga un buen desempeño en los casos que aprendió bien, pero falle en generalizar. Otro factor que afectó es que el dataset se conforma por casas colombianas y casas de otros paises, al ser casas con estéticas diferentes y tan pocos datos se afecta el entrenamiento.
 
-![Ejemplo de una correcta y alta detección de casa]("C:\Users\valer\OneDrive\Documentos\Urosario\2025-2\Vision\taller_yolo_casas\93ff9460-11b7-4d38-8620-a7c1837e589b.jpg")
+![Ejemplo de una correcta y alta detección de casa](https://github.com/user-attachments/assets/a8c3b0d1-2155-4cf7-9a07-86dd72ed78ec)
 
-![Obtiene mucho fondo en la caja]("C:\Users\valer\OneDrive\Documentos\Urosario\2025-2\Vision\taller_yolo_casas\cb9e842f-e86d-4a5f-8f58-fa5e5048f50b.jpg")
+![Obtiene mucho fondo en la caja](https://github.com/user-attachments/assets/95ea6703-2405-4338-ab5f-ec67cef567eb)
 
-![No logra capturar todas las casas y los pesos de estas casas son pequeños](""C:\Users\valer\OneDrive\Documentos\Urosario\2025-2\Vision\taller_yolo_casas\2d0e35d3-ff7c-4acf-8cce-cbd77185ef9b.jpg"")
+![No logra capturar todas las casas y los pesos de estas casas son pequeños](https://github.com/user-attachments/assets/7e6bebb3-cf2f-458b-8b92-528e9f487d6e)
 
 
 ## Limitaciones y pasos futuros
