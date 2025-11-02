@@ -57,7 +57,7 @@ results = model.train(
 
 Con el archivo inferencia.py puede observar la lógica para cargar el modelo entrenado, ejecutar la detección sobre una imagen y visualizar los resultados con las cajas delimitadoras y los puntajes de confianza.
 
-Con la función carga_pesos() se carga el modelo YOLO desde el ruta de los pesos guardados (.pt)
+Con la función carga_pesos() se carga el modelo YOLO desde el ruta de los pesos guardados (.pt).
 Para ejecutar esta función solo es necesario la ruta de los pesos.
 
 Con la función ejecutar_inferencia() se ejecuta la predicción. Extrae las cajas (xyxy), las confianzas (conf) y las clases (cls). Dibuja las cajas y la etiqueta de confianza sobre la imagen usando OpenCV (cv2) y guarda el resultado. Además, muestra la imagen usando Matplotlib si mostrar=True.
@@ -90,7 +90,7 @@ Para las métricas se decidió: recall, matriz de confusión, precisión.
 
 Revisaremos la matriz de confusión
 <img width="3000" height="2250" alt="matrix-confusion" src="https://github.com/user-attachments/assets/b8dc8181-014a-48d1-aba9-2410cb31b264" />
-Vemos una buena cantidad de de verdaderos positivos pero no detecta bien todas las casas
+Vemos una buena cantidad de de verdaderos positivos pero no detecta bien todas las casas.
 
 La métrica mAP@0.5 de 0.681 indica que, en promedio, el modelo logra identificar las casas con una Intersection Over Union (IOU) mayor al 50% en un 68.1% de los casos. 
 
@@ -101,14 +101,16 @@ Sin embargo, el Recall (Exhaustividad) de 0.620 es relativamente bajo. Un recall
 La disparidad entre la alta Precision y el bajo Recall es el punto clave del análisis: el modelo es selectivo (preciso), pero no es exhaustivo (tiene fallas al encontrar todas las casas). Dado que el dataset utilizado es pequeño, esta limitación es esperable. La falta de variabilidad en ángulos, tamaños y condiciones de iluminación en las imágenes recolectadas provoca que el modelo tenga un buen desempeño en los casos que aprendió bien, pero falle en generalizar. Otro factor que afectó es que el dataset se conforma por casas colombianas y casas de otros paises, al ser casas con estéticas diferentes y tan pocos datos se afecta el entrenamiento.
 
 ![Ejemplo de una correcta y alta detección de casa](https://github.com/user-attachments/assets/a8c3b0d1-2155-4cf7-9a07-86dd72ed78ec)
+Ejemplo de una correcta y alta detección de casa.
 
 ![Obtiene mucho fondo en la caja](https://github.com/user-attachments/assets/95ea6703-2405-4338-ab5f-ec67cef567eb)
+Obtiene mucho fondo en la caja.
 
 ![No logra capturar todas las casas y los pesos de estas casas son pequeños](https://github.com/user-attachments/assets/7e6bebb3-cf2f-458b-8b92-528e9f487d6e)
-
+No logra capturar todas las casas y los pesos de estas casas son pequeños.
 
 ## Limitaciones y pasos futuros
 
 Al ser un trabajo académico y breve, se trabajó poco en la recolección de datos y el etiquetado manual, las cosas pueden cambiar mucho por la recolección de datos. Se debe aumentar el dataset ya que el modelo es susceptible al sobreajuste (overfitting).
 
-Mejorar la robustez del endpoint de la API con manejo de errores de imagen más detallado
+Mejorar la robustez del endpoint de la API con manejo de errores de imagen más detallado.
